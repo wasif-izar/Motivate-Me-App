@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             message.text = "Please Enter your name"
         } else {
 
-
             message.text = "Hey $username! \n$currentMessage"
         }
 
