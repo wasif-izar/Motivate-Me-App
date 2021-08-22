@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@color/dark_sea_green"
+    android:foregroundGravity="center_vertical|center_horizontal"
+    android:gravity="clip_horizontal|center_horizontal|center_vertical"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/main_act_iv_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/tea_green"
+        android:contentDescription="@string/iv_message"
+        app:srcCompat="@drawable/ic_motivate" />
+
+    <TextView
+        android:id="@+id/main_act_tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/place_holder"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/main_act_ev_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="@string/enter_name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        android:textColor="@color/rich_black"
+        android:textColorHint="@color/rich_black"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/main_act_bt_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/tea_green"
+        android:text="@string/motivate"
+        android:textColor="@color/rich_black"
+        android:textSize="20sp" />
+</LinearLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Motivate Me</string>
+    <string name="iv_message">iv_message</string>
+    <string name="place_holder">Hello</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="motivate">Motivate</string>
+</resources>
