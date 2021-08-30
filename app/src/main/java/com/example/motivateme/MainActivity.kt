@@ -27,6 +27,18 @@ class MainActivity : AppCompatActivity() {
 
         name = findViewById(R.id.main_act_ev_name)
         message = findViewById(R.id.main_act_tv_message)
+
+        if(savedInstanceState != null){
+            message.text = savedInstanceState.getString("message")
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(
+            "message",
+            message.text.toString()
+        )
     }
 
     private fun updateMessage() {
