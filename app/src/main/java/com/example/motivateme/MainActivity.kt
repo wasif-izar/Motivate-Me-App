@@ -8,28 +8,34 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.motivateme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var name: EditText
+//    private lateinit var name: EditText
+    private lateinit var binding : ActivityMainBinding
 
     //val message : TextView = findViewById(R.id.main_act_tv_message)
-    private lateinit var message: TextView
+//    private lateinit var message: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val motivateButton: Button = findViewById(R.id.main_act_bt_update)
+//        setContentView(R.layout.activity_main)
 
-        motivateButton.setOnClickListener {
+            binding = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+
+//        val motivateButton: Button = findViewById(R.id.main_act_bt_update)
+
+        binding.mainActBtUpdate.setOnClickListener {
             updateMessage()
         }
 
-        name = findViewById(R.id.main_act_ev_name)
-        message = findViewById(R.id.main_act_tv_message)
+//        name = findViewById(R.id.main_act_ev_name)
+//        message = findViewById(R.id.main_act_tv_message)
 
         if(savedInstanceState != null){
-            message.text = savedInstanceState.getString("message")
+            binding.mainActTvMessage.text = savedInstanceState.getString("message")
         }
     }
 
@@ -37,12 +43,12 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         outState.putString(
             "message",
-            message.text.toString()
+            binding.mainActTvMessage.text.toString()
         )
     }
 
     private fun updateMessage() {
-        val username = name.text.toString()
+        val username = binding.mainActEvName.text.toString()
         val motivateionalMessages = listOf(
             "Keep working hard!",
             "Never give up!",
@@ -54,19 +60,19 @@ class MainActivity : AppCompatActivity() {
         val currentMessage = motivateionalMessages[index]
 
         if (username == "") {
-            message.text = "Please Enter your name"
+            binding.mainActTvMessage.text = "Please Enter your name"
         } else {
 
-            message.text = "Hey $username! \n$currentMessage"
+            binding.mainActTvMessage.text = "Hey $username! \n$currentMessage"
         }
 
-        name.setText("")
+        binding.mainActEvName.setText("")
 
         hidekeyboard()
     }
 
     private fun hidekeyboard(){
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(name.windowToken, 0)
+        imm.hideSoftInputFromWindow(binding.mainActEvName.windowToken, 0)
     }
 }
